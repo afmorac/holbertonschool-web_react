@@ -79,3 +79,24 @@ pre6.textContent = [
   `1000 -> ${executeWork(createEmployee(1000))}`,
 ].join('\n');
 document.body.appendChild(pre6);
+
+//task7
+
+export type Subjects = 'Math' | 'History';
+
+export function teachClass(todayClass: Subjects): string {
+    if (todayClass === 'Math') {
+        return 'Teaching Math';
+    }
+    return 'Teaching History';
+}
+
+console.log(teachClass('Math'));
+console.log(teachClass('History'));
+
+const pre7 = document.createElement('pre');
+pre7.textContent = [
+    `Math -> ${teachClass('Math')}`,
+    `History -> ${teachClass('History')}`,
+].join('\n');
+document.body.appendChild(pre7);
