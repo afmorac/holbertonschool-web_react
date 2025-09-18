@@ -18,7 +18,25 @@ export interface Teacher {
   
   console.log(teacher3);
   
-  const pre = document.createElement('pre');
-  pre.textContent = JSON.stringify(teacher3, null, 2);
-  document.body.appendChild(pre);
+  const pre1 = document.createElement('pre');
+  pre1.textContent = JSON.stringify(teacher3, null, 2);
+  document.body.appendChild(pre1);
   
+  //task2
+  export interface Directors extends Teacher {
+    numberOfReports: number;
+  }
+
+  const director1: Directors = {
+    firstName: 'John',
+    lastName: 'Doe',
+    location: 'London',
+    fullTimeEmployee: true,
+    numberOfReports: 17,
+  };
+
+console.log('Director example:', director1);
+
+const pre2 = document.createElement('pre');
+pre2.textContent = JSON.stringify(director1, null, 2);
+document.body.appendChild(pre2);
