@@ -56,4 +56,26 @@ export interface DirectorInterface {
     `"$500" -> ${createEmployee('$500').constructor.name}`,
   ].join('\n');
   document.body.appendChild(pre5);
-  
+
+  //task6
+
+export function isDirector(employee: Director | Teacher): employee is Director {
+  return employee instanceof Director;
+}
+
+export function executeWork(employee: Director | Teacher): string {
+  if (isDirector(employee)) {
+    return employee.workDirectorTasks();
+  }
+  return employee.workTeacherTasks();
+}
+
+console.log(executeWork(createEmployee(200)));   
+console.log(executeWork(createEmployee(1000)));  
+
+const pre6 = document.createElement('pre');
+pre6.textContent = [
+  `200 -> ${executeWork(createEmployee(200))}`,
+  `1000 -> ${executeWork(createEmployee(1000))}`,
+].join('\n');
+document.body.appendChild(pre6);
