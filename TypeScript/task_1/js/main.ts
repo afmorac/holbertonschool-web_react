@@ -42,6 +42,7 @@ pre2.textContent = JSON.stringify(director1, null, 2);
 document.body.appendChild(pre2);
 
 //task3
+
 export interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
@@ -55,3 +56,39 @@ console.log('print Teacher:', printTeacher('John', 'Doe'));
 const pre3 = document.createElement('pre');
 pre3.textContent = printTeacher('John', 'Doe');
 document.body.appendChild(pre3);
+
+//task4
+
+export interface StudentConstructor {
+  new (firstName: string, lastName: string): StudentClassInterface;
+}
+
+export interface StudentClassInterface {
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+export class StudentClass implements StudentClassInterface {
+  private firstName: string;
+  private lastName: string;
+
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  workOnHomework(): string {
+    return 'Currently working';
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
+
+const student = new StudentClass('Andrés', 'Mora');
+console.log('Student:', student.displayName(), '-', student.workOnHomework());
+
+const pre4 = document.createElement('pre');
+pre4.textContent = `${student.displayName()} - ${student.workOnHomework()}`;
+document.body.appendChild(pre4);
