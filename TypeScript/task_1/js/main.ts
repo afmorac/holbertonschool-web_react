@@ -40,3 +40,18 @@ console.log('Director example:', director1);
 const pre2 = document.createElement('pre');
 pre2.textContent = JSON.stringify(director1, null, 2);
 document.body.appendChild(pre2);
+
+//task3
+export interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
+
+export const printTeacher: printTeacherFunction = (firstName, lastName) => {
+  return `${firstName.charAt(0)}. ${lastName}`;
+}
+
+console.log('print Teacher:', printTeacher('John', 'Doe'));
+
+const pre3 = document.createElement('pre');
+pre3.textContent = printTeacher('John', 'Doe');
+document.body.appendChild(pre3);
